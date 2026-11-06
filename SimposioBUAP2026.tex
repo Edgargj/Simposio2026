@@ -1,0 +1,152 @@
+\documentclass[final]{beamer}
+
+% ====================
+% Packages
+% ====================
+
+\usepackage[spanish]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[orientation=portrait,size=a0,scale=1.2]{beamerposter}
+\usetheme{gemini}
+\usecolortheme{nott}
+\usepackage{graphicx}
+\usepackage{multicol}
+\usepackage{booktabs}
+\usepackage{caption}
+\usepackage{fontawesome}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.14}
+\usepackage{anyfontsize}
+\usepackage[font=small,labelfont=bf]{caption}
+\usepackage{wrapfig}
+\usepackage{ragged2e}
+\usepackage{lipsum}
+
+
+% ====================
+% Lengths
+% ====================
+
+\newlength{\sepwidth}
+\newlength{\colwidth}
+\setlength{\sepwidth}{0.025\paperwidth}
+\setlength{\colwidth}{0.45\paperwidth}
+
+\newcommand{\separatorcolumn}{\begin{column}{\sepwidth}\end{column}}
+
+% ====================
+% Title
+% ====================
+
+\title{Predictores de $\mathrm{p}K_{\mathrm{a}}$ basados en descriptores qu\'{i}micos y sus isovalores}
+
+\author{\'{E}dgar Garc\'{i}a-Ju\'{a}rez \inst{1} \and Juan Manuel Solano-Altamirano \inst{2} \\ \and Joaquín Barroso-Flores \inst{3} \and Jacinto Sandolval-Lira \inst{4}}
+
+\institute[shortinst]{
+  \inst{1} Doctorado en  Ciencias Qu\'{i}micas, BUAP \\
+  \inst{2} Depto. de Fisicoqu\'{i}mica, Facultad de Ciencias Qu\'{i}micas, BUAP \\
+  \inst{3} Centro Conjunto de Investigación en Química Sustentable - Instituto de Química, UNAM \\
+  \inst{4} Ingenier\'{i}a en Alimentos, Universidad Tecnol\'{o}gica de Huejotzingo, UTH\\
+   \textsuperscript{1}\texttt{gj226570294@alm.buap.mx}, \textsuperscript{2}\texttt{jmanuel.solano@correo.buap.mx}, \textsuperscript{3}\texttt{jbarroso@unam.mx},
+   \textsuperscript{4}\texttt{jsandovalira@gmail.com}
+}
+
+% ====================
+% Footer 
+% ====================
+
+\footercontent{
+  \href{}{XXXI Simposio Interno de Posgrado de Ciencias Químicas - Instituto de Ciencias} \hfill Laboratorio de Modelado Matem\'{a}tico y Desarrollo de Software Cient\'{i}fico}
+
+% ====================
+% Logo 
+% ====================
+
+\logoright{\includegraphics[height=10.5cm]{logos/LMMDSSblue}}
+\logoleft{\includegraphics[height=10cm]{logos/fcq}} 
+
+% ====================
+% Body
+% ====================
+
+\begin{document}
+
+\begin{frame}[t]
+\begin{columns}[t]
+\separatorcolumn
+
+\begin{column}{\colwidth}
+   \vspace{-0.9em}
+  \begin{alertblock}{Resumen}
+  	Dos de las grandes clasificaciones que existen de los compuestos químicos se dan en términos de acidez o basicidad. El impacto que tienen estas dos clasificaciones en los sistemas vivos es importante, ya que, a un determinado valor de pH, ciertos grupos funcionales pueden ser protonados o desprotonados, que influye, a su vez, en las propiedades intrínsecas de cada sustancia. Por lo tanto, la predicción del $\mathrm{p}K_{\mathrm{a}}$ o $\mathrm{p}K_{\mathrm{b}}$ es deseable en cualquier rama de la química. En este contexto, el desarrollo de modelos predictivos para determinar dicho valor resulta fundamental cuando la medición es inviable. Es por lo anterior, que el presente trabajo se propone diseñar metodologías teóricas de bajo costo computacional que permitan calcular dichas constantes.
+  \end{alertblock}
+
+  \begin{alertblock}{Introducci\'{o}n}
+  	\vspace{-0.1em}
+  	
+  \end{alertblock}
+
+		
+	 \begin{exampleblock}{Metodología}
+	La determinaci\'{o}n de propiedades moleculares mediante el an\'{a}lisis de isosuperficies presenta limitaciones en t\'{e}rminos de eficiencia computacional y la diversidad de descriptores existentes. Debido a lo anterior, nuestra propuesta se fundamenta en los siguientes puntos:
+	
+	\begin{itemize}
+		
+		\item \textbf{An\'{a}lisis de centros nucleof\'{i}licos en aminas:} Determinaci\'{o}n cuantitativa del potencial electrost\'{a}tico m\'{i}nimo superficial ($V_{S,min}$) asociado a los pares solitarios del \'{a}tomo de nitr\'{o}geno. Se tomar\'{a} como referencia la metodolog\'{i}a reportada en la literatura reciente como Haslak \textit{et al.} \cite{Haslak2021} para isosuperficies centradas en el \'{a}tomo de nitr\'{o}geno, estableciendo una correlaci\'{o}n directa con los valores de $\mathrm{p}K_{\mathrm{b}}$ de diversas aminas.
+		
+		\item \textbf{Automatizaci\'{o}n y escalabilidad:} Implementaci\'{o}n del entorno en un software propio para optimizar el c\'{a}lculo de isovalores, reduciendo los tiempos de c\'{o}mputo en comparaci\'{o}n con las metodolog\'{i}as tradicionales.
+		\item \textbf{An\'{a}lisis multidimensional de isosuperficies:} Extender el an\'{a}lisis de la densidad electr\'{o}nica convencional hacia descriptores como la Funci\'{o}n de Localizaci\'{o}n Electr\'{o}nica (ELF), Mapeo de Potencial Electrost\'{a}tico Molecular (MEP), Regi\'{o}n de Electrones Lentos (ROSE), Gradiente Reducido de Densidad (RDG), Localizador de Orbitales Localizados (LOL), entre otros,  sobre diversas superficies de contorno.
+		
+		\item \textbf{Modelado predictivo de $\mathrm{p}K_{\mathrm{a}}$:} Desarrollar una expresi\'{o}n matem\'{a}tica que se correlacione, donde el $\mathrm{p}K_{\mathrm{a}}$ se defina como una funci\'{o}n dependiente de los descriptores fisicoqu\'{i}micos y otros par\'{a}metros de isovalores seleccionados.
+		\begin{equation}
+			pK_a = f(\text{descriptores, isovalores})
+		\end{equation}
+		
+	\end{itemize}	
+	\end{exampleblock}	
+
+		\vspace{-1.3em}
+		\begin{block}{Resultados}
+			Actualmente, nos hemos enfocado en la selección y obtención de bases de datos para la generación de matrices Z y optimización de las geometrías, con énfasis en moléculas derivadas de ésteres [4, 5, 6]. El flujo de trabajo comienza con la descarga de las estructuras moleculares en formato SDF desde la base de datos PubChem. Con el propósito de estandarizar el análisis del grupo funcional carbonilo, se realiza un reordenamiento topológico de los átomos, siguiendo una secuencia específica, definida por el patrón O1, C2, O3, R1 y R2, ver Figura 1.
+			
+			Una vez reordenadas las coordenadas cartesianas, estas son transformadas en matrices Z, las cuales sirven como geometrías de entrada para cálculos mecanocuánticos. Las optimizaciones de las geometrías y los cálculos de frecuencias vibracionales son realizadas en Gaussian09. Respecto al nivel de teoría, se emplea un funcional de la densidad con correcciones de dispersión conocido como  [7], en combinación con la base de funciones de correlación consistente cc-pVDZ. Además, para garantizar la localización de un mínimo de energía en la superficie de energía potencial y descartar estados de transición, se realiza un análisis de frecuencias. Asimismo, las simulaciones se llevan a cabo considerando los efectos de solvatación implícita en agua, empleando el modelo continuo de polarización conductor (CPCM) y se implementa una rejilla de integración ultrafina (integral=grid=ultrafine) para mejorar la precisión numérica de las integrales de intercambio y correlación.
+			Finalmente, se configura cada molécula para generar de manera directa la información de las funciones de onda extendida (en formato WFX), los cuales servirán como pilares fundamentes para el análisis posterior e interpretación de la densidad electrónica y otras propiedades derivadas de esta. 
+			
+		\end{block}
+	
+	\end{column}
+
+\separatorcolumn
+
+	\begin{column}{\colwidth}
+	  \vspace{-0.9em}
+
+  \begin{alertblock}{Conclusi\'{o}n}
+		  	La implementación computacional descrita anteriormente permitirá establecer un flujo de trabajo sistemático y reproducible para el análisis del grupo carbonilo. A través de la estandarización de las matrices Z y la posterior optimización de la geometría al nivel de teoría /cc-pVDZ, se prevé la obtención de estructuras moleculares que simulen condiciones fisiológicas o acuosas mediante el modelo CPCM. Además, la generación de las funciones de onda extendida constituye la base de este proyecto, pues se espera que dicha información permita mapear de forma detallada la densidad electrónica de los sistemas estudiados mediante el software propio DensToolKit \cite{Solano2024}.
+		  \vspace{-1em}
+  \end{alertblock}
+
+  \begin{block}{Referencias}
+  	\vspace{-0.1em}
+  	\nocite{*}
+  	{\bibliographystyle{ieeetr}\bibliography{poster}}
+  	\vspace{-0.5em}
+  \end{block}
+  
+  \begin{block}{Agradecimientos}
+  	\vspace{1cm}
+  	 A la Secretaría de Ciencia, Humanidades, Tecnología e Innovación (SECIHTI) por el financiamiento otorgado para la realización de mis estudios de doctorado.
+  \end{block}
+  
+  
+\end{column}
+\separatorcolumn
+
+\end{columns}
+\end{frame}
+
+\end{document}
+
+

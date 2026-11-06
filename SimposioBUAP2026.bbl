@@ -1,0 +1,45 @@
+\begin{thebibliography}{1}
+
+\bibitem{Haslak2021}
+Z.~P. Haslak, S.~Zareb, I.~Dogan, V.~Aviyente, and G.~Monard, ``Using atomic
+  charges to describe the pka of carboxylic acids,'' {\em Journal of Chemical
+  Information and Modeling}, vol.~61, no.~6, pp.~2733--2743, 2021.
+\newblock PMID: 34137248.
+
+\bibitem{Solano2024}
+J.~M. Solano-Altamirano, J.~M. Hern{\'a}ndez-P{\'e}rez, J.~Sandoval-Lira, and
+  J.~Barroso-Flores, ``{DensToolKit2}: A comprehensive open-source package for
+  analyzing the electron density and its derivative scalar and vector fields,''
+  {\em The Journal of Chemical Physics}, vol.~161, no.~23, p.~232501, 2024.
+
+\bibitem{Stivers1996}
+J.~T. Stivers, C.~Abeygunawardana, A.~S. Mildvan, G.~Hajipour, and C.~P.
+  Whitman, ``4-oxalocrotonate tautomerase: ph dependence of catalysis and pka
+  values of active site residues,'' {\em Biochemistry}, vol.~35, no.~3,
+  pp.~814--823, 1996.
+
+\bibitem{Nedyalkova2025}
+M.~Nedyalkova, D.~Heredia, J.~Barroso-Flores, and M.~Lattuada, ``Comparative
+  analysis of pka predictions for arsonic acids using density functional
+  theory-based and machine learning approaches,'' {\em ACS Omega}, vol.~10,
+  no.~3, pp.~3128--3140, 2025.
+
+\bibitem{Lazare2023}
+J.~Lazare, C.~Tebes-Stevens, and E.~J. Weber, ``A multiple linear regression
+  approach to the estimation of carboxylic acid ester and lactone alkaline
+  hydrolysis rate constants,'' {\em SAR and QSAR in Environmental Research},
+  vol.~34, no.~3, pp.~183--210, 2023.
+
+\bibitem{Simon2026}
+L.~Simón, ``pka predicting models trained with a tautomer compatible graph
+  dataset with quantum chemical features.,'' {\em ChemRxiv}, vol.~2026,
+  no.~0121, 2026.
+
+\bibitem{Sandoval2020}
+J.~Sandoval-Lira, G.~Mondrag{\'o}n-Sol{\'o}rzano, L.~I. Lugo-Fuentes, and
+  J.~Barroso-Flores, ``Accurate estimation of pkb values for amino groups from
+  surface electrostatic potential ($v_{S,\text{min}}$) calculations: {The}
+  isoelectric points of amino acids as a case study,'' {\em Journal of Chemical
+  Information and Modeling}, vol.~60, no.~3, pp.~1445--1452, 2020.
+
+\end{thebibliography}
