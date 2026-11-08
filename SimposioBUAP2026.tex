@@ -4,6 +4,10 @@
 % Packages
 % ====================
 
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric, arrows.meta, positioning}
+
+
 \usepackage[spanish]{babel}
 \usepackage[T1]{fontenc}
 \usepackage{lmodern}
@@ -47,7 +51,7 @@
 \institute[shortinst]{
   \inst{1} Doctorado en  Ciencias Qu\'{i}micas, BUAP \\
   \inst{2} Depto. de Fisicoqu\'{i}mica, Facultad de Ciencias Qu\'{i}micas, BUAP \\
-  \inst{3} Centro Conjunto de Investigación en Química Sustentable - Instituto de Química, UNAM \\
+  \inst{3} Centro Conjunto de Investigación en Química Sustentable - Instituto de Química, UAEM-UNAM \\
   \inst{4} Ingenier\'{i}a en Alimentos, Universidad Tecnol\'{o}gica de Huejotzingo, UTH\\
    \textsuperscript{1}\texttt{gj226570294@alm.buap.mx}, \textsuperscript{2}\texttt{jmanuel.solano@correo.buap.mx}, \textsuperscript{3}\texttt{jbarroso@unam.mx},
    \textsuperscript{4}\texttt{jsandovalira@gmail.com}
@@ -80,11 +84,41 @@
 \begin{column}{\colwidth}
    \vspace{-0.9em}
   \begin{alertblock}{Resumen}
+  	  	\vspace{.5cm}
   	Dos de las grandes clasificaciones que existen de los compuestos químicos se dan en términos de acidez o basicidad. El impacto que tienen estas dos clasificaciones en los sistemas vivos es importante, ya que, a un determinado valor de pH, ciertos grupos funcionales pueden ser protonados o desprotonados, que influye, a su vez, en las propiedades intrínsecas de cada sustancia. Por lo tanto, la predicción del $\mathrm{p}K_{\mathrm{a}}$ o $\mathrm{p}K_{\mathrm{b}}$ es deseable en cualquier rama de la química. En este contexto, el desarrollo de modelos predictivos para determinar dicho valor resulta fundamental cuando la medición es inviable. Es por lo anterior, que el presente trabajo se propone diseñar metodologías teóricas de bajo costo computacional que permitan calcular dichas constantes.
   \end{alertblock}
 
   \begin{alertblock}{Introducci\'{o}n}
-  	\vspace{-0.1em}
+
+	\vspace{1em}
+
+		\begin{figure}
+		\centering
+		\includegraphics[width=.6\linewidth]{graphs/pka-aa}
+		\caption{Aplicaciones para la predicción de $\mathrm{p}K_{\mathrm{a}}$: Desarrollo de nuevos fármacos y diseño de nuevas proteínas.}
+		\label{fig:limitaciones}
+	\end{figure}
+  	
+  	\begin{figure}
+  		\centering
+  		\includegraphics[width=1\linewidth]{graphs/Limitaciones2}
+  		\label{fig:limitaciones}
+  	\end{figure}
+  	
+  	\begin{columns}[T] % El parámetro [T] fuerza a que se alineen por su borde superior
+  		\begin{column}{0.45\linewidth} % Primera columna interna (45% del ancho del bloque)
+  			\centering
+  			\includegraphics[width=0.6\linewidth]{graphs/MEP} % Reemplaza con tu archivo
+  			\captionof{figure}{Mapa de potencial electrostático del ácido p-fluoro fenilacético.} % Leyenda opcional
+  		\end{column}
+  		
+  		\begin{column}{0.45\linewidth} % Segunda columna interna (45% del ancho del bloque)
+  			\centering
+  			\includegraphics[width=\linewidth]{graphs/Vsmin} % Reemplaza con tu archivo
+  			\captionof{figure}{Representación de $V_{S,min}$ y $V_{S,max}$  (potencial positivo y negativo) en átomo de nitrógeno e hidrógeno.}
+  		\end{column}
+  	\end{columns}
+  	
   	
   \end{alertblock}
 
@@ -97,38 +131,53 @@
 		\item \textbf{An\'{a}lisis de centros nucleof\'{i}licos en aminas:} Determinaci\'{o}n cuantitativa del potencial electrost\'{a}tico m\'{i}nimo superficial ($V_{S,min}$) asociado a los pares solitarios del \'{a}tomo de nitr\'{o}geno. Se tomar\'{a} como referencia la metodolog\'{i}a reportada en la literatura reciente como Haslak \textit{et al.} \cite{Haslak2021} para isosuperficies centradas en el \'{a}tomo de nitr\'{o}geno, estableciendo una correlaci\'{o}n directa con los valores de $\mathrm{p}K_{\mathrm{b}}$ de diversas aminas.
 		
 		\item \textbf{Automatizaci\'{o}n y escalabilidad:} Implementaci\'{o}n del entorno en un software propio para optimizar el c\'{a}lculo de isovalores, reduciendo los tiempos de c\'{o}mputo en comparaci\'{o}n con las metodolog\'{i}as tradicionales.
-		\item \textbf{An\'{a}lisis multidimensional de isosuperficies:} Extender el an\'{a}lisis de la densidad electr\'{o}nica convencional hacia descriptores como la Funci\'{o}n de Localizaci\'{o}n Electr\'{o}nica (ELF), Mapeo de Potencial Electrost\'{a}tico Molecular (MEP), Regi\'{o}n de Electrones Lentos (ROSE), Gradiente Reducido de Densidad (RDG), Localizador de Orbitales Localizados (LOL), entre otros,  sobre diversas superficies de contorno.
 		
-		\item \textbf{Modelado predictivo de $\mathrm{p}K_{\mathrm{a}}$:} Desarrollar una expresi\'{o}n matem\'{a}tica que se correlacione, donde el $\mathrm{p}K_{\mathrm{a}}$ se defina como una funci\'{o}n dependiente de los descriptores fisicoqu\'{i}micos y otros par\'{a}metros de isovalores seleccionados.
+		\item \textbf{An\'{a}lisis multidimensional de isosuperficies:} Extender el an\'{a}lisis de la densidad electr\'{o}nica convencional hacia descriptores como la Funci\'{o}n de Localizaci\'{o}n Electr\'{o}nica (ELF), Mapeo de Potencial Electrost\'{a}tico Molecular (MEP), Regi\'{o}n de Electrones Lentos (ROSE), Gradiente Reducido de Densidad (RDG), Localizador de Orbitales Localizados (LOL), entre otros \cite{Solano2024}, sobre diversas superficies de contorno (las siglas de los descriptores concuerdan por su nombre en inglés).
+		
+		\item \textbf{Modelado predictivo de $\mathrm{p}K_{\mathrm{a}}$:} Desarrollar una expresi\'{o}n matem\'{a}tica que se correlacione, donde el $\mathrm{p}K_{\mathrm{a}}$ se defina como una funci\'{o}n dependiente de los descriptores fisicoqu\'{i}micos y otros par\'{a}metros de isovalores seleccionados, ver ecuación \ref{eq:1}.
+		
+	
 		\begin{equation}
 			pK_a = f(\text{descriptores, isovalores})
+		\label{eq:1}
 		\end{equation}
 		
 	\end{itemize}	
 	\end{exampleblock}	
-
-		\vspace{-1.3em}
-		\begin{block}{Resultados}
-			Actualmente, nos hemos enfocado en la selección y obtención de bases de datos para la generación de matrices Z y optimización de las geometrías, con énfasis en moléculas derivadas de ésteres [4, 5, 6]. El flujo de trabajo comienza con la descarga de las estructuras moleculares en formato SDF desde la base de datos PubChem. Con el propósito de estandarizar el análisis del grupo funcional carbonilo, se realiza un reordenamiento topológico de los átomos, siguiendo una secuencia específica, definida por el patrón O1, C2, O3, R1 y R2, ver Figura 1.
-			
-			Una vez reordenadas las coordenadas cartesianas, estas son transformadas en matrices Z, las cuales sirven como geometrías de entrada para cálculos mecanocuánticos. Las optimizaciones de las geometrías y los cálculos de frecuencias vibracionales son realizadas en Gaussian09. Respecto al nivel de teoría, se emplea un funcional de la densidad con correcciones de dispersión conocido como  [7], en combinación con la base de funciones de correlación consistente cc-pVDZ. Además, para garantizar la localización de un mínimo de energía en la superficie de energía potencial y descartar estados de transición, se realiza un análisis de frecuencias. Asimismo, las simulaciones se llevan a cabo considerando los efectos de solvatación implícita en agua, empleando el modelo continuo de polarización conductor (CPCM) y se implementa una rejilla de integración ultrafina (integral=grid=ultrafine) para mejorar la precisión numérica de las integrales de intercambio y correlación.
-			Finalmente, se configura cada molécula para generar de manera directa la información de las funciones de onda extendida (en formato WFX), los cuales servirán como pilares fundamentes para el análisis posterior e interpretación de la densidad electrónica y otras propiedades derivadas de esta. 
-			
-		\end{block}
 	
 	\end{column}
 
 \separatorcolumn
-
+	
 	\begin{column}{\colwidth}
-	  \vspace{-0.9em}
+   \vspace{-0.9em}
+	  \begin{block}{Resultados}
+		\vspace{.5cm}
+	  	Actualmente, nos hemos enfocado en la selección y obtención de bases de datos para la generación de matrices Z y la optimización de las geometrías, con énfasis en moléculas derivadas de ésteres \cite{Lazare2023, Simon2026, Sandoval2020}. El flujo de trabajo comienza con la descarga de las estructuras moleculares en formato SDF desde la base de datos PubChem. Con el propósito de estandarizar el análisis del grupo funcional carbonilo, se realiza un reordenamiento topológico de los átomos, siguiendo una secuencia específica, definida por el patrón O1, C2, O3, R1 y R2, ver Figura 1.
+	  	
+	  	
+	  	\begin{figure}
+	  		\centering
+	  		\includegraphics[width=0.6\linewidth]{graphs/Picture1}
+	  		\caption{\centering Esquema de ordenamiento topológico implementado en la matriz Z para los sistemas moleculares bajo estudio: el átomo de oxígeno principal (O1), el carbono de carbonilo (C2), oxígeno secundario o adyacente (O3), y sustituyentes (R1 y R2). }
+	  		\label{fig:picture1}
+	  	\end{figure}
+	  	\vspace{-1.2em}
+	  	Una vez reordenadas las coordenadas cartesianas, estas son transformadas en matrices Z, las cuales sirven como geometrías de entrada para cálculos mecanocuánticos. Las optimizaciones de las geometrías y los cálculos de frecuencias vibracionales son realizadas en Gaussian09. Respecto al nivel de teoría, se emplea un funcional de la densidad con correcciones de dispersión conocido como $\omega$B97X-D \cite{Sandoval2020}, en combinación con la base de funciones de correlación consistente cc-pVDZ. 
+	  	
+
+	   Además, para garantizar la localización de un mínimo de energía en la superficie de energía potencial y descartar estados de transición, se realiza un análisis de frecuencias. Asimismo, las simulaciones se llevan a cabo considerando los efectos de solvatación implícita en agua, empleando el modelo continuo de polarización conductor (CPCM) y se implementa una rejilla de integración ultrafina (integral=grid=ultrafine) para mejorar la precisión numérica de las integrales de intercambio y correlación.
+	  Finalmente, se configura cada molécula para generar de manera directa la información de las funciones de onda extendida (en formato WFX), los cuales servirán como pilares fundamentes para el análisis posterior e interpretación de la densidad electrónica y otras propiedades derivadas de esta.
+	  \end{block}
 
   \begin{alertblock}{Conclusi\'{o}n}
+  	  	  	\vspace{.5cm}
 		  	La implementación computacional descrita anteriormente permitirá establecer un flujo de trabajo sistemático y reproducible para el análisis del grupo carbonilo. A través de la estandarización de las matrices Z y la posterior optimización de la geometría al nivel de teoría /cc-pVDZ, se prevé la obtención de estructuras moleculares que simulen condiciones fisiológicas o acuosas mediante el modelo CPCM. Además, la generación de las funciones de onda extendida constituye la base de este proyecto, pues se espera que dicha información permita mapear de forma detallada la densidad electrónica de los sistemas estudiados mediante el software propio DensToolKit \cite{Solano2024}.
 		  \vspace{-1em}
   \end{alertblock}
 
   \begin{block}{Referencias}
+  	\scriptsize
   	\vspace{-0.1em}
   	\nocite{*}
   	{\bibliographystyle{ieeetr}\bibliography{poster}}
@@ -136,7 +185,8 @@
   \end{block}
   
   \begin{block}{Agradecimientos}
-  	\vspace{1cm}
+  		\scriptsize
+  	  \vspace{.5cm}
   	 A la Secretaría de Ciencia, Humanidades, Tecnología e Innovación (SECIHTI) por el financiamiento otorgado para la realización de mis estudios de doctorado.
   \end{block}
   
