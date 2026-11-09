@@ -85,7 +85,7 @@
    \vspace{-0.9em}
   \begin{alertblock}{Resumen}
   	  	\vspace{.5cm}
-  	Dos de las grandes clasificaciones que existen de los compuestos químicos se dan en términos de acidez o basicidad. El impacto que tienen estas dos clasificaciones en los sistemas vivos es importante, ya que, a un determinado valor de pH, ciertos grupos funcionales pueden ser protonados o desprotonados, cuyo fenómeno influye, a su vez, en las propiedades intrínsecas de cada sustancia. Por lo tanto, la predicción del $\mathrm{p}K_{\mathrm{a}}$ o $\mathrm{p}K_{\mathrm{b}}$ es deseable en cualquier rama de la química. En este contexto, el desarrollo de modelos predictivos que permitan determinar dicho valor resulta fundamental cuando la medición es inviable. Es por lo anterior, que el presente trabajo se propone diseñar metodologías teóricas de bajo costo computacional que permitan calcular dichas constantes.
+  	 Los ácidos y las bases juegan un papel esencial en los seres vivos, ya que, a un determinado valor de pH, ciertos grupos funcionales pueden ser protonados o desprotonados, cuyo fenómeno influye, a su vez, en las propiedades intrínsecas de cada sustancia. Por lo tanto, la predicción del $\mathrm{p}K_{\mathrm{a}}$ o $\mathrm{p}K_{\mathrm{b}}$ es deseable en cualquier rama de la química. En este contexto, el desarrollo de modelos predictivos que permitan determinar dicho valor resulta fundamental cuando la medición es inviable. Es por lo anterior, que el presente trabajo se propone diseñar metodologías teóricas de bajo costo computacional que permitan calcular dichas constantes.
   \end{alertblock}
 
   \begin{alertblock}{Introducci\'{o}n}
@@ -122,18 +122,18 @@
 
 		
 	 \begin{exampleblock}{Metodología}
-	La determinaci\'{o}n de propiedades moleculares mediante el an\'{a}lisis de isosuperficies presenta limitaciones en t\'{e}rminos de eficiencia computacional y la diversidad de descriptores existentes. Debido a lo anterior, nuestra propuesta se fundamenta en los siguientes puntos:
-	
-	\begin{enumerate}
-		\justifying
+			Nuestra propuesta permitirá optimizar la predicción de propiedades moleculares mediante cuatro etapas:
+			
+			\begin{itemize}
+				\item \textbf{Centros nucleofílicos:} Cálculo del potencial electrostático mínimo superficial ($V_{S,min}$) en los pares solitarios del nitrógeno (aminas), correlacionándolo con el $\mathrm{p}K_{\mathrm{b}}$ \cite{Haslak2021}.
+				
+				\item \textbf{Automatización:} Implementación del entorno en un software propio para el cálculo masivo y optimizado de isovalores, reduciendo el tiempo de cómputo.
+				
+				\item \textbf{Análisis multidimensional:} Extensión del cálculo hacia múltiples descriptores de densidad electrónica sobre isosuperficies de contorno específicos (ELF, MEP, ROSE, RDG, LOL) \cite{Solano2024}.
+				
+				\item \textbf{Modelado predictivo:} Formulación de una expresión matemática  para el $\mathrm{p}K_{\mathrm{a}}$ en función de los descriptores fisicoquímicos seleccionados (ecuación \ref{eq:1}).
+			\end{itemize}
 		
-		\item \textbf{An\'{a}lisis de centros nucleof\'{i}licos en aminas:} Determinaci\'{o}n cuantitativa del potencial electrost\'{a}tico m\'{i}nimo superficial ($V_{S,min}$) asociado a los pares solitarios del \'{a}tomo de nitr\'{o}geno. Se tomar\'{a} como referencia la metodolog\'{i}a reportada en la literatura reciente como Haslak \textit{et al.} \cite{Haslak2021} para isosuperficies centradas en el \'{a}tomo de nitr\'{o}geno, estableciendo una correlaci\'{o}n directa con los valores de $\mathrm{p}K_{\mathrm{b}}$ de diversas aminas.
-		
-		\item \textbf{Automatizaci\'{o}n y escalabilidad:} Implementaci\'{o}n del entorno en un software propio para optimizar el c\'{a}lculo de isovalores, reduciendo los tiempos de c\'{o}mputo en comparaci\'{o}n con las metodolog\'{i}as tradicionales.
-		
-		\item \textbf{An\'{a}lisis multidimensional de isosuperficies:} Extender el an\'{a}lisis de la densidad electr\'{o}nica convencional hacia descriptores como la Funci\'{o}n de Localizaci\'{o}n Electr\'{o}nica (ELF), Mapeo de Potencial Electrost\'{a}tico Molecular (MEP), Regi\'{o}n de Electrones Lentos (ROSE), Gradiente Reducido de Densidad (RDG), Localizador de Orbitales Localizados (LOL), entre otros \cite{Solano2024}, sobre diversas superficies de contorno (las siglas de los descriptores concuerdan por su nombre en inglés).
-		
-		\item \textbf{Modelado predictivo de $\mathrm{p}K_{\mathrm{a}}$:} Desarrollar una expresi\'{o}n matem\'{a}tica que se correlacione, donde el $\mathrm{p}K_{\mathrm{a}}$ se defina como una funci\'{o}n dependiente de los descriptores fisicoqu\'{i}micos y otros par\'{a}metros de isovalores seleccionados, ver ecuación \ref{eq:1}.
 		
 	
 		\begin{equation}
@@ -141,7 +141,7 @@
 		\label{eq:1}
 		\end{equation}
 		
-	\end{enumerate}	
+
 	\end{exampleblock}	
 	
 	\end{column}
@@ -176,7 +176,7 @@
   \end{alertblock}
 
   \begin{block}{Referencias}
-   %\scriptsize
+   \small
   	\vspace{-0.1em}
   	\justifying
   	{\bibliographystyle{ieeetr}\bibliography{poster}}
