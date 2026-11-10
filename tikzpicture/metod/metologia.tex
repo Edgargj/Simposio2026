@@ -1,0 +1,162 @@
+\documentclass[border=5pt]{standalone}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish]{babel}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta, positioning, calc, fit, backgrounds, shadows}
+\usepackage{amsmath}
+\begin{document}
+
+\begin{tikzpicture}[
+    node distance=0.6cm and 1.2cm,
+    etapa/.style={
+        rectangle, rounded corners=4pt,
+        draw=blue!60!black, fill=blue!8,
+        text width=5.6cm, align=center,
+        minimum height=1.7cm, font=\small,
+        drop shadow
+    },
+    etapaAncha/.style={
+        rectangle, rounded corners=4pt,
+        draw=blue!60!black, fill=blue!8,
+        text width=9.4cm, align=center,
+        minimum height=1.3cm, font=\small,
+        drop shadow
+    },
+    etapaNaranja/.style={
+        rectangle, rounded corners=4pt,
+        draw=orange!70!black, fill=orange!8,
+        text width=9.4cm, align=center,
+        minimum height=1.5cm, font=\small,
+        drop shadow
+    },
+    etapaVerde/.style={
+        rectangle, rounded corners=4pt,
+        draw=green!50!black, fill=green!8,
+        text width=9.4cm, align=center,
+        minimum height=1.3cm, font=\small,
+        drop shadow
+    },
+    descriptor/.style={
+        circle, draw=orange!70!black, fill=orange!15,
+        minimum size=0.95cm, font=\small\bfseries
+    },
+    resultado/.style={
+        rectangle, rounded corners=4pt,
+        draw=green!50!black, fill=green!12,
+        text width=9.4cm, align=center,
+        minimum height=1.2cm, font=\small\bfseries,
+        drop shadow
+    },
+    flecha/.style={-{Stealth[length=2.5mm]}, thick, blue!60!black},
+    flechadesc/.style={-{Stealth[length=2.2mm]}, thick, orange!70!black},
+    flechagrupo/.style={-{Stealth[length=2.2mm]}, thick, teal!60!black}
+]
+
+% ============================================================
+% PASO 1
+% ============================================================
+\node[etapaAncha, fill=teal!10, draw=teal!60!black] (e1) {
+    \textbf{Paso 1 \\ Conjunto de entrenamiento}\\
+    Base amplia y diversa de grupos funcionales: \\ ácidos carboxílicos, aminas, ésteres, éteres, fenoles, etc.
+};
+
+% ============================================================
+% PASO 2
+% ============================================================
+\node[etapa, below left=0.75cm and 0.6cm of e1.south] (e2a) {
+    \textbf{Paso 2 \\ Centros electrofílicos}\\
+    (grupos ácidos)
+};
+\node[etapa, below right=0.75cm and 0.6cm of e1.south] (e2b) {
+    \textbf{Paso 2 \\ Centros nucleofílicos}\\
+    (grupos básicos)
+};
+\draw[flechagrupo] (e1.south) -- ++(0,-0.25) -| (e2a.north);
+\draw[flechagrupo] (e1.south) -- ++(0,-0.25) -| (e2b.north);
+
+% ============================================================
+% PASO 3
+% ============================================================
+\node[etapa, below=0.6cm of e2a] (e3a) {
+    \textbf{Paso 3 \\ Cálculo automático}\\
+    función de onda ($\Psi$)
+};
+\node[etapa, below=0.6cm of e2b] (e3b) {
+    \textbf{Paso 3 \\ Cálculo automático}\\
+    función de onda ($\Psi$) 
+};
+\draw[flecha] (e2a) -- (e3a);
+\draw[flecha] (e2b) -- (e3b);
+
+% ============================================================
+% PASO 4
+% ============================================================
+\node[etapaNaranja, below=1.0cm of $(e3a.south)!0.5!(e3b.south)$] (e4) {
+    \textbf{Paso 4 \\ Análisis multidimensional}\\
+    Evaluación de descriptores químicos a partir de la función de onda ($\Psi$): Cálculo de isovalores sobre isosuperficies de contorno (software propio: DTK) 
+};
+
+\draw[flecha] (e3a.south) -- (e3a.south |- e4.north);
+\draw[flecha] (e3b.south) -- (e3b.south |- e4.north);
+
+% ============================================================
+% Descriptores
+% ============================================================
+\node[descriptor, below=0.55cm of e4.south, xshift=-2.8cm] (mep) {MEP};
+\node[descriptor, right=0.25cm of mep] (elf) {ELF};
+\node[descriptor, right=0.25cm of elf] (rose) {RoSE};
+\node[descriptor, right=0.25cm of rose] (rdg) {RDG};
+\node[descriptor, right=0.25cm of rdg] (lol) {LOL};
+
+% ============================================================
+% PASO 5
+% ============================================================
+\node[etapaVerde, below=1.4cm of $(mep.south)!0.5!(lol.south)$] (e5) {
+    \textbf{Paso 5 \\  Modelo predictivo}\\
+    $pK_{a/b} = f(\text{descriptores},\, \text{isovalores})$
+};
+
+\foreach \d in {mep, elf, rose, rdg, lol} {
+    \draw[flechadesc] (\d.south) -- (\d.south |- e5.north);
+}
+
+% ============================================================
+% PASO 6
+% ============================================================
+\node[resultado, below=0.6cm of e5] (e6) {
+    \textbf{Paso 6 \\ Resultado final}\\
+    Predicción de $pK_a$ / $pK_b$ para grupos ácidos y básicos
+};
+\draw[flecha] (e5) -- (e6);
+
+% ============================================================
+% Retroalimentación — canal a la derecha + etiqueta exterior
+% ============================================================
+\coordinate (rightbound) at ([xshift=2.5cm]e4.east);
+\draw[flecha, dashed, gray]
+    (e6.east) -- (e6.east -| rightbound)
+    -- (e1.east -| rightbound)
+    -- (e1.east);
+
+% Etiqueta FUERA de la línea, a la derecha del canal, tamaño \small y rotada
+\node[font=\small, text=black, rotate=90, anchor=south, inner sep=1pt]
+    at ($(e4.east -| rightbound)!0.5!(e1.east -| rightbound)$) {validación};
+
+% Reserva de espacio extra a la derecha para que no se recorte
+\path (e4.east -| rightbound) ++(1.2cm,0);============================================================
+% Reserva de espacio a la derecha para evitar recortes
+% ============================================================
+\path (e4.east -| rightbound) ++(1.0cm,0);
+
+% ============================================================
+% Fondo del bloque Paso 4 + descriptores
+% ============================================================
+\begin{scope}[on background layer]
+    \node[fit=(e4)(mep)(lol), fill=orange!4, rounded corners=6pt, inner sep=6pt,
+          draw=orange!40, dashed] {};
+\end{scope}
+
+\end{tikzpicture}
+
+\end{document}
