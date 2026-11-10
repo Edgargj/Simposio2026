@@ -1,0 +1,98 @@
+\documentclass[border=5pt]{standalone}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish]{babel}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta, positioning, calc, fit, backgrounds, shadows}
+\usepackage{amsmath}
+
+\begin{document}
+	
+
+	
+	% ============================================================
+	% SEGUNDO TIKZPICTURE (MODIFICADO CON ESTILO UNIFICADO)
+	% ============================================================
+	\tikzset{
+		estiloAzul/.style={
+			rectangle, rounded corners=4pt,
+			draw=blue!60!black, fill=blue!8,
+			text width=4.5cm, align=center,
+			minimum height=1.2cm, font=\small,
+			drop shadow
+		},
+		estiloNaranja/.style={
+			rectangle, rounded corners=4pt,
+			draw=orange!70!black, fill=orange!8,
+			text width=4.5cm, align=center,
+			minimum height=1.2cm, font=\small,
+			drop shadow
+		},
+		estiloTeal/.style={
+			rectangle, rounded corners=4pt,
+			draw=teal!60!black, fill=teal!10,
+			text width=4.5cm, align=center,
+			minimum height=1.2cm, font=\small,
+			drop shadow
+		},
+		estiloVerde/.style={
+			rectangle, rounded corners=4pt,
+			draw=yellow!50!black, fill=yellow!15,
+			text width=4.5cm, align=center,
+			minimum height=1.2cm, font=\small,
+			drop shadow
+		},
+		estiloMorado/.style={
+			rectangle, rounded corners=4pt,
+			draw=purple!60!black, fill=purple!8,
+			text width=4.5cm, align=center,
+			minimum height=1.2cm, font=\small,
+			drop shadow
+		},
+		estiloFinal/.style={
+			rectangle, rounded corners=4pt,
+			draw=green!50!black, fill=green!12,
+			text width=4.5cm, align=center,
+			minimum height=1.2cm, font=\small,
+			drop shadow
+		},
+		flechaModerna/.style={-{Stealth[length=2.5mm]}, thick, black}
+	}
+	
+	\vspace{1cm}
+	\centering
+	
+	\scalebox{0.70}{
+		\begin{tikzpicture}[node distance=2.2cm and 1.5cm]
+			
+			% Fila superior
+			\node (start) [estiloAzul] {1. Selección de datos \\ Obtención de estructuras de ésteres en PubChem.};
+			
+			% Parámetros
+			\node (p1) [estiloNaranja, below=of start] 
+			{2. Estandarización topológica \\ Reordenamiento atómico según el patron O1, C2, O3, R1 y R2.};
+			
+			\node (p2) [estiloTeal, right=of p1] 
+			{3. Generación de matrices Z \\ Conversión de coordenadas cartesianas a coordenadas internas.};
+			
+			% Cálculo
+			\node (calc) [estiloVerde, below=of p2] 
+			{4. Cálculos mecanocuánticos \\ Optimización de estructuras $\omega$B97X-D/cc-pVDZ, CPCM.};
+			
+			% Aplicación
+			\node (aplica) [estiloMorado, left=of calc] 
+			{5. Análisis de frecuencias \\ Verificación de un mínimo en la superficie de energía potencial.};
+			
+			\node (end) [estiloFinal, left=of aplica] {6. Obtención de función extendida (WFX).};
+			
+			% Flechas
+			\draw [flechaModerna] (start) -- (p1);
+			\draw [flechaModerna] (p1) -- (p2);
+			\draw [flechaModerna] (p2) -- (calc);
+			\draw [flechaModerna] (calc) -- (aplica);
+			\draw [flechaModerna] (aplica) -- (end);
+			
+		\end{tikzpicture}
+	}
+	
+\end{document}
