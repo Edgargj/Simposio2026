@@ -159,4 +159,45 @@
 
 \end{tikzpicture}
 
+
+  \begin{tikzpicture}[
+	node distance=0.8cm,
+	blockRojo/.style={
+		rectangle, rounded corners=4pt,
+		draw=red!70!black, fill=red!8,
+		text width=11cm, align=left,
+		font=\small, drop shadow,
+		inner sep=8pt, minimum height=3.5cm
+	},
+	blockVerde/.style={
+		rectangle, rounded corners=4pt,
+		draw=green!50!black, fill=green!8,
+		text width=11cm, align=left,
+		font=\small, drop shadow,
+		inner sep=8pt, minimum height=3.5cm
+	}
+	]
+	
+	% Bloque 1: Limitaciones Experimentales (Izquierda)
+	\node (bloque1) [blockRojo] {
+		\textbf{\large Limitaciones Experimentales}\\[0.4em]
+		\begin{itemize}
+			\setlength{\itemsep}{3pt}
+			\item \textbf{Métodos experimentales con baja precisión:} Potenciometría, UV-vis, HPLC o fluorometría.
+			\item \textbf{Métodos experimentales con alta precisión:} RMN/Rayos X. Requieren cristales de alta resolución y carecen de flexibilidad conformacional.
+		\end{itemize}
+	};
+	
+	% Bloque 2: Desarrollo de modelos predictivos (Derecha, a la misma altura)
+	\node (bloque2) [blockVerde, right=0.8cm of bloque1] {
+		\textbf{\large Desarrollo de modelos predictivos}\\[0.4em]
+		\begin{itemize}
+			\setlength{\itemsep}{3pt}
+			\item Modelos predictivos para casos donde la medición es inviable.
+			\item Diseñar metodologías teóricas de bajo costo computacional para determinar constantes de acidez o basicidad.
+		\end{itemize}
+	};
+	
+\end{tikzpicture}
+
 \end{document}
